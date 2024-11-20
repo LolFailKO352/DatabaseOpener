@@ -55,12 +55,10 @@ namespace DatabaseOpenerKraus
             this.cmbTable = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnShowData = new System.Windows.Forms.Button();
-            this.btnAddItem = new System.Windows.Forms.Button();
-            this.btnAll = new System.Windows.Forms.Button();
-            this.btnNothing = new System.Windows.Forms.Button();
             this.btnInvert = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnNothing = new System.Windows.Forms.Button();
+            this.btnAll = new System.Windows.Forms.Button();
             this.chkColumns = new System.Windows.Forms.CheckedListBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.lblOrderBy = new System.Windows.Forms.ToolStripLabel();
@@ -70,7 +68,7 @@ namespace DatabaseOpenerKraus
             this.lblWhere = new System.Windows.Forms.ToolStripLabel();
             this.cmbWhere = new System.Windows.Forms.ToolStripComboBox();
             this.txtWhere = new System.Windows.Forms.ToolStripTextBox();
-            this.btnAddFilter = new System.Windows.Forms.ToolStripButton();
+            this.btnAdd = new System.Windows.Forms.ToolStripButton();
             this.txtOrder = new System.Windows.Forms.ToolStripTextBox();
             this.btnClear = new System.Windows.Forms.ToolStripButton();
             this.souborToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,6 +101,7 @@ namespace DatabaseOpenerKraus
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.oproduktuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.cmbnigga = new System.Windows.Forms.ToolStripComboBox();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -132,19 +131,19 @@ namespace DatabaseOpenerKraus
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(42, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(43, 17);
             this.toolStripStatusLabel1.Text = "Status:";
             // 
             // lblConnection
             // 
             this.lblConnection.Name = "lblConnection";
-            this.lblConnection.Size = new System.Drawing.Size(36, 17);
+            this.lblConnection.Size = new System.Drawing.Size(37, 17);
             this.lblConnection.Text = "Close";
             // 
             // lblDebug
             // 
             this.lblDebug.Name = "lblDebug";
-            this.lblDebug.Size = new System.Drawing.Size(42, 17);
+            this.lblDebug.Size = new System.Drawing.Size(44, 17);
             this.lblDebug.Text = "Debug";
             // 
             // lblDebug2
@@ -167,7 +166,8 @@ namespace DatabaseOpenerKraus
             this.toolStripSeparator8,
             this.toolStripDatabase,
             this.txtDatabase,
-            this.btnConnect});
+            this.btnConnect,
+            this.cmbnigga});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -179,12 +179,12 @@ namespace DatabaseOpenerKraus
             // 
             this.toolStripServer.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripServer.Name = "toolStripServer";
-            this.toolStripServer.Size = new System.Drawing.Size(39, 22);
+            this.toolStripServer.Size = new System.Drawing.Size(42, 22);
             this.toolStripServer.Text = "Server";
             // 
             // txtServer
             // 
-            this.txtServer.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F);
+            this.txtServer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtServer.Name = "txtServer";
             this.txtServer.Size = new System.Drawing.Size(100, 25);
             this.txtServer.Text = "localhost";
@@ -198,12 +198,12 @@ namespace DatabaseOpenerKraus
             // 
             this.toolStripUser.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripUser.Name = "toolStripUser";
-            this.toolStripUser.Size = new System.Drawing.Size(30, 22);
+            this.toolStripUser.Size = new System.Drawing.Size(31, 22);
             this.toolStripUser.Text = "User";
             // 
             // txtUser
             // 
-            this.txtUser.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F);
+            this.txtUser.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(100, 25);
             this.txtUser.Text = "root";
@@ -222,7 +222,7 @@ namespace DatabaseOpenerKraus
             // 
             // txtPwd
             // 
-            this.txtPwd.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F);
+            this.txtPwd.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.Size = new System.Drawing.Size(100, 25);
             // 
@@ -235,12 +235,12 @@ namespace DatabaseOpenerKraus
             // 
             this.toolStripDatabase.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripDatabase.Name = "toolStripDatabase";
-            this.toolStripDatabase.Size = new System.Drawing.Size(55, 22);
+            this.toolStripDatabase.Size = new System.Drawing.Size(57, 22);
             this.toolStripDatabase.Text = "Database";
             // 
             // txtDatabase
             // 
-            this.txtDatabase.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F);
+            this.txtDatabase.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDatabase.Name = "txtDatabase";
             this.txtDatabase.Size = new System.Drawing.Size(100, 25);
             this.txtDatabase.Text = "katalogkraus";
@@ -252,7 +252,7 @@ namespace DatabaseOpenerKraus
             this.btnConnect.Image = ((System.Drawing.Image)(resources.GetObject("btnConnect.Image")));
             this.btnConnect.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(72, 22);
+            this.btnConnect.Size = new System.Drawing.Size(73, 22);
             this.btnConnect.Text = "Connect";
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
@@ -303,7 +303,7 @@ namespace DatabaseOpenerKraus
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 93F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(503, 687);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
@@ -322,7 +322,7 @@ namespace DatabaseOpenerKraus
             // 
             this.cmbTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbTable.FormattingEnabled = true;
-            this.cmbTable.Location = new System.Drawing.Point(3, 16);
+            this.cmbTable.Location = new System.Drawing.Point(3, 18);
             this.cmbTable.Name = "cmbTable";
             this.cmbTable.Size = new System.Drawing.Size(491, 21);
             this.cmbTable.TabIndex = 0;
@@ -337,19 +337,16 @@ namespace DatabaseOpenerKraus
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.Controls.Add(this.btnShowData, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnAddItem, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnAll, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.btnNothing, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.btnInvert, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(this.btnEdit, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnDelete, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnInvert, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnEdit, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnNothing, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnAll, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 597);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 640);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(497, 87);
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(497, 44);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
             // btnShowData
@@ -357,51 +354,18 @@ namespace DatabaseOpenerKraus
             this.btnShowData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnShowData.Location = new System.Drawing.Point(3, 3);
             this.btnShowData.Name = "btnShowData";
-            this.btnShowData.Size = new System.Drawing.Size(93, 37);
+            this.btnShowData.Size = new System.Drawing.Size(93, 38);
             this.btnShowData.TabIndex = 0;
             this.btnShowData.Text = "Show Data";
             this.btnShowData.UseVisualStyleBackColor = true;
             this.btnShowData.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnAddItem
-            // 
-            this.btnAddItem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAddItem.Location = new System.Drawing.Point(102, 3);
-            this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(93, 37);
-            this.btnAddItem.TabIndex = 4;
-            this.btnAddItem.Text = "Add Item";
-            this.btnAddItem.UseVisualStyleBackColor = true;
-            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
-            // 
-            // btnAll
-            // 
-            this.btnAll.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAll.Location = new System.Drawing.Point(3, 46);
-            this.btnAll.Name = "btnAll";
-            this.btnAll.Size = new System.Drawing.Size(93, 38);
-            this.btnAll.TabIndex = 1;
-            this.btnAll.Text = "All";
-            this.btnAll.UseVisualStyleBackColor = true;
-            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
-            // 
-            // btnNothing
-            // 
-            this.btnNothing.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnNothing.Location = new System.Drawing.Point(102, 46);
-            this.btnNothing.Name = "btnNothing";
-            this.btnNothing.Size = new System.Drawing.Size(93, 38);
-            this.btnNothing.TabIndex = 2;
-            this.btnNothing.Text = "Nothing";
-            this.btnNothing.UseVisualStyleBackColor = true;
-            this.btnNothing.Click += new System.EventHandler(this.btnNothing_Click);
-            // 
             // btnInvert
             // 
             this.btnInvert.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnInvert.Location = new System.Drawing.Point(201, 46);
+            this.btnInvert.Location = new System.Drawing.Point(399, 3);
             this.btnInvert.Name = "btnInvert";
-            this.btnInvert.Size = new System.Drawing.Size(93, 38);
+            this.btnInvert.Size = new System.Drawing.Size(95, 38);
             this.btnInvert.TabIndex = 3;
             this.btnInvert.Text = "Invert Selection";
             this.btnInvert.UseVisualStyleBackColor = true;
@@ -410,24 +374,35 @@ namespace DatabaseOpenerKraus
             // btnEdit
             // 
             this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnEdit.Location = new System.Drawing.Point(300, 3);
+            this.btnEdit.Location = new System.Drawing.Point(102, 3);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(93, 37);
+            this.btnEdit.Size = new System.Drawing.Size(93, 38);
             this.btnEdit.TabIndex = 0;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // btnDelete
+            // btnNothing
             // 
-            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDelete.Location = new System.Drawing.Point(201, 3);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(93, 37);
-            this.btnDelete.TabIndex = 5;
-            this.btnDelete.Text = "Delete Item";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnNothing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnNothing.Location = new System.Drawing.Point(300, 3);
+            this.btnNothing.Name = "btnNothing";
+            this.btnNothing.Size = new System.Drawing.Size(93, 38);
+            this.btnNothing.TabIndex = 2;
+            this.btnNothing.Text = "Nothing";
+            this.btnNothing.UseVisualStyleBackColor = true;
+            this.btnNothing.Click += new System.EventHandler(this.btnNothing_Click);
+            // 
+            // btnAll
+            // 
+            this.btnAll.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAll.Location = new System.Drawing.Point(201, 3);
+            this.btnAll.Name = "btnAll";
+            this.btnAll.Size = new System.Drawing.Size(93, 38);
+            this.btnAll.TabIndex = 1;
+            this.btnAll.Text = "All";
+            this.btnAll.UseVisualStyleBackColor = true;
+            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 
             // chkColumns
             // 
@@ -437,7 +412,7 @@ namespace DatabaseOpenerKraus
             this.chkColumns.FormattingEnabled = true;
             this.chkColumns.Location = new System.Drawing.Point(3, 53);
             this.chkColumns.Name = "chkColumns";
-            this.chkColumns.Size = new System.Drawing.Size(497, 529);
+            this.chkColumns.Size = new System.Drawing.Size(497, 565);
             this.chkColumns.TabIndex = 0;
             this.chkColumns.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.chkColumns_ItemCheck);
             // 
@@ -454,7 +429,7 @@ namespace DatabaseOpenerKraus
             this.lblWhere,
             this.cmbWhere,
             this.txtWhere,
-            this.btnAddFilter,
+            this.btnAdd,
             this.txtOrder,
             this.btnClear});
             this.toolStrip2.Location = new System.Drawing.Point(0, 49);
@@ -468,7 +443,7 @@ namespace DatabaseOpenerKraus
             // 
             this.lblOrderBy.BackColor = System.Drawing.SystemColors.Control;
             this.lblOrderBy.Name = "lblOrderBy";
-            this.lblOrderBy.Size = new System.Drawing.Size(61, 22);
+            this.lblOrderBy.Size = new System.Drawing.Size(62, 22);
             this.lblOrderBy.Text = "ORDER BY";
             // 
             // cmbOrderBy
@@ -500,22 +475,22 @@ namespace DatabaseOpenerKraus
             // 
             // txtWhere
             // 
-            this.txtWhere.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F);
+            this.txtWhere.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtWhere.Name = "txtWhere";
             this.txtWhere.Size = new System.Drawing.Size(100, 25);
             // 
-            // btnAddFilter
+            // btnAdd
             // 
-            this.btnAddFilter.Image = ((System.Drawing.Image)(resources.GetObject("btnAddFilter.Image")));
-            this.btnAddFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAddFilter.Name = "btnAddFilter";
-            this.btnAddFilter.Size = new System.Drawing.Size(49, 22);
-            this.btnAddFilter.Text = "Add";
-            this.btnAddFilter.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(49, 22);
+            this.btnAdd.Text = "Add";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtOrder
             // 
-            this.txtOrder.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F);
+            this.txtOrder.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtOrder.Name = "txtOrder";
             this.txtOrder.Size = new System.Drawing.Size(500, 25);
             // 
@@ -524,7 +499,7 @@ namespace DatabaseOpenerKraus
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
             this.btnClear.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(54, 22);
+            this.btnClear.Size = new System.Drawing.Size(55, 22);
             this.btnClear.Text = "Clear";
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
@@ -542,7 +517,7 @@ namespace DatabaseOpenerKraus
             this.toolStripSeparator2,
             this.ukončitToolStripMenuItem});
             this.souborToolStripMenuItem.Name = "souborToolStripMenuItem";
-            this.souborToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.souborToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.souborToolStripMenuItem.Text = "&Soubor";
             // 
             // novýToolStripMenuItem
@@ -551,7 +526,7 @@ namespace DatabaseOpenerKraus
             this.novýToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.novýToolStripMenuItem.Name = "novýToolStripMenuItem";
             this.novýToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.novýToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.novýToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.novýToolStripMenuItem.Text = "&Nový";
             // 
             // otevřítToolStripMenuItem
@@ -560,13 +535,13 @@ namespace DatabaseOpenerKraus
             this.otevřítToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.otevřítToolStripMenuItem.Name = "otevřítToolStripMenuItem";
             this.otevřítToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.otevřítToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.otevřítToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.otevřítToolStripMenuItem.Text = "&Otevřít";
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(150, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(151, 6);
             // 
             // uložitToolStripMenuItem
             // 
@@ -574,19 +549,19 @@ namespace DatabaseOpenerKraus
             this.uložitToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.uložitToolStripMenuItem.Name = "uložitToolStripMenuItem";
             this.uložitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.uložitToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.uložitToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.uložitToolStripMenuItem.Text = "&Uložit";
             // 
             // uložitjakoToolStripMenuItem
             // 
             this.uložitjakoToolStripMenuItem.Name = "uložitjakoToolStripMenuItem";
-            this.uložitjakoToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.uložitjakoToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.uložitjakoToolStripMenuItem.Text = "Uložit j&ako";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(150, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(151, 6);
             // 
             // tiskToolStripMenuItem
             // 
@@ -594,7 +569,7 @@ namespace DatabaseOpenerKraus
             this.tiskToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tiskToolStripMenuItem.Name = "tiskToolStripMenuItem";
             this.tiskToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.tiskToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.tiskToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.tiskToolStripMenuItem.Text = "&Tisk";
             // 
             // náhledToolStripMenuItem
@@ -602,18 +577,18 @@ namespace DatabaseOpenerKraus
             this.náhledToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("náhledToolStripMenuItem.Image")));
             this.náhledToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.náhledToolStripMenuItem.Name = "náhledToolStripMenuItem";
-            this.náhledToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.náhledToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.náhledToolStripMenuItem.Text = "&Náhled";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(150, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(151, 6);
             // 
             // ukončitToolStripMenuItem
             // 
             this.ukončitToolStripMenuItem.Name = "ukončitToolStripMenuItem";
-            this.ukončitToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.ukončitToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.ukončitToolStripMenuItem.Text = "U&končit";
             // 
             // upravitToolStripMenuItem
@@ -694,19 +669,19 @@ namespace DatabaseOpenerKraus
             this.přizpůsobitToolStripMenuItem,
             this.možnostiToolStripMenuItem});
             this.nástrojeToolStripMenuItem.Name = "nástrojeToolStripMenuItem";
-            this.nástrojeToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.nástrojeToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.nástrojeToolStripMenuItem.Text = "&Nástroje";
             // 
             // přizpůsobitToolStripMenuItem
             // 
             this.přizpůsobitToolStripMenuItem.Name = "přizpůsobitToolStripMenuItem";
-            this.přizpůsobitToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.přizpůsobitToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.přizpůsobitToolStripMenuItem.Text = "&Přizpůsobit";
             // 
             // možnostiToolStripMenuItem
             // 
             this.možnostiToolStripMenuItem.Name = "možnostiToolStripMenuItem";
-            this.možnostiToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.možnostiToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.možnostiToolStripMenuItem.Text = "&Možnosti";
             // 
             // nápovědaToolStripMenuItem
@@ -718,7 +693,7 @@ namespace DatabaseOpenerKraus
             this.toolStripSeparator5,
             this.oproduktuToolStripMenuItem});
             this.nápovědaToolStripMenuItem.Name = "nápovědaToolStripMenuItem";
-            this.nápovědaToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.nápovědaToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.nápovědaToolStripMenuItem.Text = "&Nápověda";
             // 
             // obsahToolStripMenuItem
@@ -764,6 +739,11 @@ namespace DatabaseOpenerKraus
             this.menuStrip1.Size = new System.Drawing.Size(1386, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // cmbnigga
+            // 
+            this.cmbnigga.Name = "cmbnigga";
+            this.cmbnigga.Size = new System.Drawing.Size(121, 25);
             // 
             // DatabaseOpener
             // 
@@ -837,7 +817,7 @@ namespace DatabaseOpenerKraus
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripLabel lblWhere;
         private System.Windows.Forms.ToolStripComboBox cmbWhere;
-        private System.Windows.Forms.ToolStripButton btnAddFilter;
+        private System.Windows.Forms.ToolStripButton btnAdd;
         private System.Windows.Forms.ToolStripTextBox txtOrder;
         private System.Windows.Forms.ToolStripButton btnClear;
         private System.Windows.Forms.ToolStripTextBox txtWhere;
@@ -875,8 +855,7 @@ namespace DatabaseOpenerKraus
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblDebug2;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Button btnAddItem;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.ToolStripComboBox cmbnigga;
     }
 }
 

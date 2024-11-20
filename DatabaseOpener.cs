@@ -10,12 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using MySql.Data.MySqlClient;
+using System.Drawing.Text;
 
 namespace DatabaseOpenerKraus
 {
     public partial class DatabaseOpener : Form
     {
         MySqlConnection dbConnect;
+        string Command;
         public DatabaseOpener()
         {
             InitializeComponent();
@@ -124,6 +126,7 @@ namespace DatabaseOpenerKraus
 
                         MessageBox.Show("Zvolte prosím sloupce tabulky!", "String", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
+                    dbConnect.Close();
                 }
             }
             catch (Exception err)
@@ -239,5 +242,52 @@ namespace DatabaseOpenerKraus
             About aboutApp = new About();
             aboutApp.Show();
         }
+
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+            AddItem addItem = new AddItem();
+            addItem.Show();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (lstViewData.SelectedItems.Count > 0)
+            {
+                try
+                {
+                    foreach (ListViewItem item in lstViewData.SelectedItems)
+                    {
+                        string id = item.SubItems[0].Text;
+                        Command = "DELETE FROM " + cmbTable.SelectedItem + " WHERE " + chkColumns.Items[0] + " = @id";
+                        MySqlCommand cmd = new MySqlCommand(Command, dbConnect);
+                        cmd.Parameters.AddWithValue("@id", id);
+
+                        dbConnect.Open();
+                        cmd.ExecuteNonQuery();
+
+                        lstViewData.Items.Remove(item);
+                    }
+                    MessageBox.Show("Řádek(y) odstraněn(y)", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dbConnect.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Chyba: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vyberte řádek k odstranění", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        //private void selDataItem(ListViewItem Record)
+        //{
+        //    int index = lstViewData.SelectedItems.IndexOf(Record);
+        //    List<string> recordSubItems = new List<string>();
+        //    for (int i = 0; i < lstViewData.Items[index].SubItems.Count; i++)
+        //    {
+        //        recordSubItems.Add(lstViewData.Items[index].SubItems[i + 1].Text);
+        //    }
+        //}
     }
 }

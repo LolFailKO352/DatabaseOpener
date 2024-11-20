@@ -18,7 +18,7 @@ namespace DatabaseOpenerKraus
             this.labelProductName.Text = AssemblyProduct;
             this.labelVersion.Text = String.Format("Verze {0}", AssemblyVersion);
             this.labelCopyright.Text = AssemblyCopyright;
-            this.labelCompanyName.Text = "Mubea";
+            this.labelCompanyName.Text = "";
             this.textBoxDescription.Text = AssemblyDescription;
         }
 
@@ -105,6 +105,11 @@ namespace DatabaseOpenerKraus
         private void okButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void About_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
